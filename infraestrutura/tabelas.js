@@ -20,7 +20,7 @@ class Tabelas {
     }
 
     criarTransacoes() {
-        const sql = 'CREATE TABLE IF NOT EXISTS Transacoes (idTransacao int NOT NULL AUTO_INCREMENT, idConta init NOT NULL, valor decimal(6,2) NOT NULL, dataTransacao datetime NOT NULL, PRIMARY KEY(idTransacao))'
+        const sql = 'CREATE TABLE IF NOT EXISTS Transacoes (idTransacao int NOT NULL AUTO_INCREMENT, idConta int NOT NULL, valor decimal(6,2) NOT NULL, dataTransacao datetime NOT NULL, PRIMARY KEY(idTransacao))'
 
         this.conexao.query(sql, erro => {
             if(erro) {
@@ -32,7 +32,7 @@ class Tabelas {
     }
 
     criarPessoas() {
-        const sql = 'CREATE TABLE IF NOT EXISTS Pessoas (idPessoa int NOT NULL AUTO_INCREMENT, idConta init NOT NULL, nome varchar(100) NOT NULL, cpf varchar(11) NOT NULL, dataNascimento datetime NOT NULL, PRIMARY KEY(idPessoa))'
+        const sql = 'CREATE TABLE IF NOT EXISTS Pessoas (idPessoa int NOT NULL AUTO_INCREMENT, idConta int NOT NULL, nome varchar(100) NOT NULL, cpf varchar(11) NOT NULL, dataNascimento datetime NOT NULL, PRIMARY KEY(idPessoa))'
 
         this.conexao.query(sql, erro => {
             if(erro) {

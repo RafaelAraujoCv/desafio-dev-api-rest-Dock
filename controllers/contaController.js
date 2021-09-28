@@ -7,49 +7,50 @@ module.exports = app => {
     app.post('/conta/criar', (req, res) => {
         const dadosConta = req.body
 
-        Conta.criarConta(dadosConta)
-        res.send('Post criar conta')
+        Conta.criarConta(dadosConta, res)
+        //res.send('Post criar conta')
     })
 
     //depósito em uma conta
-    app.post('/conta/depositar', (req, res) => {
+    app.patch('/conta/depositar/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
         const dadosDeposito = req.body
 
-        Conta.depositarConta(dadosDeposito)
-        res.send('Post depositar em conta')
+        Conta.depositarConta(idConta, dadosDeposito, res)
+        //res.send('Post depositar em conta')
     })
 
     //consulta de saldo em determinada conta
     app.post('/conta/consultar/saldo', (req, res) => {
         const dadosConsultarConta = req.body
 
-        Conta.consultaSaldoConta(dadosConsultarConta)
-        res.send('Post consultar saldo em conta')
+        Conta.consultaSaldoConta(dadosConsultarConta, res)
+        //res.send('Post consultar saldo em conta')
     })
 
     //saque em uma conta
-    app.post('/conta/saque', (req, res) => {
+    app.patch('/conta/saque/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
         const dadosSaqueConta = req.body
 
-        Conta.saqueConta(dadosSaqueConta)
-        res.send('Post saque conta')
+        Conta.saqueConta(idConta, dadosSaqueConta, res)
+        //res.send('Post saque conta')
     })
 
     //bloqueio de uma conta
-    app.post('/conta/bloquear', (req, res) => {
+    app.patch('/conta/bloquear/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
         const dadosBloquearConta = req.body
 
-        Conta.bloqueioConta(dadosBloquearConta)
-        res.send('Post bloquear conta')
-
+        Conta.bloqueioConta(idConta, dadosBloquearConta, res)
+        //res.send('Post bloquear conta')
     })
 
     //recupera o extrato de transações de uma conta
     app.post('/conta/extrato/transacao', (req, res) => {
         const dadosExtratoTransacao = req.body
 
-        Conta.extratoTransacaoConta(dadosExtratoTransacao)
-        res.send('Post extrato de transações em conta')
-
+        Conta.extratoTransacaoConta(dadosExtratoTransacao, res)
+        //res.send('Post extrato de transações em conta')
     })
 }
