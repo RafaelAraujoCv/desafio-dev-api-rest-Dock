@@ -1,9 +1,9 @@
 const Conta = require('../models/contaModel')
 
 module.exports = app => {
-    app.get('/contas', (req, res) => res.send('Você está na rota de atendimentos e está realizando um GET'))
+    app.get('/contas', (req, res) => res.send('<html><h2>Você está na rota de conta e está realizando um GET</h2></html>'))
 
-    //criação de uma conta
+    //criação de uma conta - OK
     app.post('/conta/criar', (req, res) => {
         const dadosConta = req.body
 
@@ -11,7 +11,7 @@ module.exports = app => {
         //res.send('Post criar conta')
     })
 
-    //depósito em uma conta
+    //depósito em uma conta - OK
     app.patch('/conta/depositar/:idConta', (req, res) => {
         const idConta = parseInt(req.params.idConta)
         const dadosDeposito = req.body
@@ -20,15 +20,16 @@ module.exports = app => {
         //res.send('Post depositar em conta')
     })
 
-    //consulta de saldo em determinada conta
-    app.post('/conta/consultar/saldo', (req, res) => {
-        const dadosConsultarConta = req.body
+    //consulta de saldo em determinada conta - VERIFICAR
+    app.get('/conta/consultar/saldo/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
+        //const dadosConsultarConta = req.body
 
-        Conta.consultaSaldoConta(dadosConsultarConta, res)
+        Conta.consultaSaldoConta(idConta, res)
         //res.send('Post consultar saldo em conta')
     })
 
-    //saque em uma conta
+    //saque em uma conta - OK
     app.patch('/conta/saque/:idConta', (req, res) => {
         const idConta = parseInt(req.params.idConta)
         const dadosSaqueConta = req.body
@@ -37,7 +38,7 @@ module.exports = app => {
         //res.send('Post saque conta')
     })
 
-    //bloqueio de uma conta
+    //bloqueio de uma conta - OK
     app.patch('/conta/bloquear/:idConta', (req, res) => {
         const idConta = parseInt(req.params.idConta)
         const dadosBloquearConta = req.body
@@ -46,11 +47,23 @@ module.exports = app => {
         //res.send('Post bloquear conta')
     })
 
-    //recupera o extrato de transações de uma conta
-    app.post('/conta/extrato/transacao', (req, res) => {
-        const dadosExtratoTransacao = req.body
+    //recupera o extrato de transações de uma conta - OK
+    app.get('/conta/extrato/transacao/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
+        //const dadosExtratoTransacao = req.body
 
-        Conta.extratoTransacaoConta(dadosExtratoTransacao, res)
+        Conta.extratoTransacaoConta(idConta, res)
+        //res.send('Post extrato de transações em conta')
+    })
+
+    //recupera o extrato de transações de uma conta por data - OK
+    app.get('/conta/extrato/transacao/data/:idConta', (req, res) => {
+        const idConta = parseInt(req.params.idConta)
+        const dadosData = req.body
+
+        console.log(dadosData)
+
+        Conta.extratoTransacaoContaPorData(idConta, dadosData, res)
         //res.send('Post extrato de transações em conta')
     })
 }

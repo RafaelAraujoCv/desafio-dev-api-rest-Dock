@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "73ba10ed-f135-488a-96d7-e735e7d55f9b",
+		"name": "DOC REST API - Desafio Dock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar Conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "saldo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "limiteSaqueDiario",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "flagAtivo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tipoConta",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "idPessoa",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/conta/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"criar"
+					]
+				},
+				"description": "Cria nova conta, utilizando Body form-urlencoded, valores informados nos campos:\n- saldo -> Saldo em conta\n- limiteSaqueDiario -> Limite maximo para saque diario na conta\n- flagAtivo -> Conta Ativa (1) conta desativada (0)\n- tipoConta -> Tipo conta criada\n- idPessoa -> Id de identificação do cliente"
+			},
+			"response": [
+				{
+					"name": "Criar Conta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "saldo",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "limiteSaqueDiario",
+									"value": "100.00",
+									"type": "text"
+								},
+								{
+									"key": "flagAtivo",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tipoConta",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "idPessoa",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/conta/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"criar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Depositar Conta",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "saldo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/conta/depositar/{idConta}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"depositar",
+						"{idConta}"
+					]
+				},
+				"description": "Deposita valor em uma conta, utilizando idConta na url de chamada e valores em Body form-urlencoded:\n- saldo -> Saldo a ser depositado\n- {idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Depositar Conta",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "saldo",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/conta/depositar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"depositar",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Consulta Saldo Conta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/conta/consultar/saldo/{idConta}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"consultar",
+						"saldo",
+						"{idConta}"
+					]
+				},
+				"description": "Consulta saldo em determinada conta, passando idConta na url da chamada.\n{idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Consulta Saldo Conta",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/conta/consultar/saldo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"consultar",
+								"saldo",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Saque Conta",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "saldo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/conta/saque/{idCliente}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"saque",
+						"{idCliente}"
+					]
+				},
+				"description": "Retira valor em uma conta, utilizando idConta na url de chamada e valores em Body form-urlencoded:\n\nsaldo -> Saldo a ser retirado\n{idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Saque Conta",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "saldo",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/conta/saque/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"saque",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Bloquear Conta",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flagAtivo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/conta/bloquear/{idConta}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"bloquear",
+						"{idConta}"
+					]
+				},
+				"description": "Bloqueia conta, utilizando idConta na url de chamada e valores em Body form-urlencoded:\n\nflagAtivo -> Conta Ativa (1) conta desativada (0)\n{idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Bloquear Conta",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flagAtivo",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/conta/bloquear/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"bloquear",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Recupera Extrato",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/conta/extrato/transacao/{idConta}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"extrato",
+						"transacao",
+						"{idConta}"
+					]
+				},
+				"description": "Retorna extrato de transações da conta, utilizando idConta na url de chamada\n\n{idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Recupera Extrato",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/conta/extrato/transacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"extrato",
+								"transacao",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Recupera Extrato por data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "dataInicio",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "dataFinal",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/conta/extrato/transacao/data/{idConta}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conta",
+						"extrato",
+						"transacao",
+						"data",
+						"{idConta}"
+					]
+				},
+				"description": "Retorna extrato de transações da conta, utilizando idConta na url de chamada e data de inicio e final (periodo de busca)\n\n{idConta} -> Id de identificação da conta"
+			},
+			"response": [
+				{
+					"name": "Recupera Extrato por data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "dataInical",
+									"value": "20/08/2021",
+									"type": "text"
+								},
+								{
+									"key": "dataFinal",
+									"value": "30/08/2021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/conta/extrato/transacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"conta",
+								"extrato",
+								"transacao",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

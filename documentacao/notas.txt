@@ -1,0 +1,57 @@
+Desafio Técnico
+Nós trabalhamos com meios de pagamento e nada melhor do que um bom sistema para gestão de contas:
+
+Pré-requisitos:
+
+* Desenvolver os recursos em API Rest que realizam operações bancárias com a entidade conta a seguir: OK
+Contas	Tipo
+idConta	Numérico
+idPessoa	Numérico
+saldo	Monetário
+limiteSaqueDiario	Monetário
+flagAtivo	Condicional
+tipoConta	Numérido
+dataCriacao	Data
+
+
+* Tabela de transações realizadas na conta OK
+Transacoes	Tipo
+idTransacao	Numérico
+idConta	Numérico
+valor	Monetário
+dataTransacao	Data
+
+* P.S.: Não é necessário realizar operações com a tabela pessoa, mas é necessária a criação da tabela para mapeamento 
+da relação com a conta e enviar script de criação de pelo menos uma pessoa. OK
+Pessoas	Tipo
+idPessoa	Numérico
+nome	Texto
+cpf	Texto
+dataNascimento	Data
+
+O que esperamos como escopo mínimo:
+* Implementar path que realiza a criação de uma conta; OK
+* Implementar path que realiza operação de depósito em uma conta; OK
+* Implementar path que realiza operação de consulta de saldo em determinada conta; OK
+* Implementar path que realiza operação de saque em uma conta; OK
+* Implementar path que realiza o bloqueio de uma conta; OK
+* Implementar path que recupera o extrato de transações de uma conta; OK
+
+O que será diferencial:
+* Implementar extrato por período; OK
+* Elaborar manual de execução; 
+* Elaborar documentação; OK
+* Elaborar testes.
+
+O que vamos avaliar:
+* Seu código; OK
+* Dockerfile ou docker-compose do serviço;
+* Script de banco; OK
+* Organização; OK
+* Boas práticas; OK
+* Diferenciais; 
+
+Teste para o time de Arquitetura?
+* Baseado no que foi desenvolvido nos envie uma solução da Arquitetura utilizando serviços na nuvem como a AWS (diferencial), Azure e GCP;
+* Junto com as instruções de execução, explique qual Design Pattern você utilizou e por que o escolheu para a sua solução.
+
